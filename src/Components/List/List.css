@@ -1,5 +1,6 @@
 #list-canvas {
     list-style-type: none;
+    overflow: auto;
 }
 #list-canvas li{
     font-size: 40px;

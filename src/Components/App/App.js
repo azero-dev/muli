@@ -17,11 +17,18 @@ class App extends React.Component {
       genreFormActive: false,
     }
     this.isFormActive = this.isFormActive.bind(this);
+    this.addingGenre = this.addingGenre.bind(this);
   }
 
 
   isFormActive(tw) {
     this.setState({genreFormActive: tw});
+  }
+
+  addingGenre(tw) {
+    const state = this.state; 
+    state.genres[tw] = ''; 
+    this.setState(state)
   }
 
   render() {
@@ -51,7 +58,10 @@ class App extends React.Component {
             </div>
             <div id="form-box">
               <div id="inside-form">
-                <AddGenreForm isActive={this.state.genreFormActive} />
+                <AddGenreForm
+                  isActive={this.state.genreFormActive}
+                  inputGen={this.addingGenre}
+                  isFormActive={this.isFormActive} />
               </div>
             </div>
           </div>

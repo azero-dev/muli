@@ -8,7 +8,7 @@ class AddGenreButton extends React.Component {
     }
 
     switchButton() {
-        if (this.props.isActive == true) {
+        if (this.props.isActive === true) {
             this.props.onFormStatus(false);
         } else {
             this.props.onFormStatus(true);

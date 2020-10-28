@@ -9,6 +9,7 @@
   width: 75%;
   min-height: 80vh;
   padding: 4% 6%;
+  overflow: scroll;
 }
 #button-list button{
   font-family: 'Monda', sans-serif;
@@ -86,7 +87,7 @@
   transition-timing-function: ease;
 }
 #inside-form input{
-  margin: 0 6% 0 0;
+  margin: 0 2% 0 0;
   border: none;
   border-radius: 15px;
   padding: 1%;
@@ -94,6 +95,17 @@
   font-family: 'Anton', sans-serif;
   letter-spacing: 1px;
   color: white;
+}
+#inside-form button{
+  margin: 0 2% 0 0;
+  border: none;
+  border-radius: 15px;
+  padding: 1%;
+  background-color: #111933;
+  font-family: 'Anton', sans-serif;
+  letter-spacing: 1px;
+  color: white;
+  cursor: pointer;
 }
 .submit-form{
   cursor: pointer;
