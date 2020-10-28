@@ -1,8 +1,29 @@
 import React from 'react';
 import './App.css';
 import Header from '../Header/Header';
+import List from '../List/List';
+import AddGenreButton from '../AddGenreButton/AddGenreButton';
+import AddGenreForm from '../AddGenreForm/AddGenreForm';
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      genres: {
+        Rock: '',
+        Jazz: '',
+        Pop: ''
+      },
+      genreFormActive: false,
+    }
+    this.isFormActive = this.isFormActive.bind(this);
+  }
+
+
+  isFormActive(tw) {
+    this.setState({genreFormActive: tw});
+  }
+
   render() {
     return (
       <div>
@@ -10,8 +31,12 @@ class App extends React.Component {
         <div id="back-body">
 
           <div id="main-canvas">
-            <div id="button-list"></div>
-            <div id="lists-canvas"></div>
+            <div id="button-list">
+              <AddGenreButton onFormStatus={this.isFormActive} isActive={this.state.genreFormActive} />
+            </div>
+            <div id="lists-canvas">
+              <List list={this.state.genres} />
+            </div>
           </div>
 
           <div id="side-layer">
@@ -26,10 +51,11 @@ class App extends React.Component {
             </div>
             <div id="form-box">
               <div id="inside-form">
+                <AddGenreForm isActive={this.state.genreFormActive} />
               </div>
             </div>
           </div>
-          
+
         </div>
       </div>
     );

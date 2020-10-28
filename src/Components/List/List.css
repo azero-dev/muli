@@ -1,0 +1,9 @@
+#list-canvas {
+    list-style-type: none;
+}
+#list-canvas li{
+    font-size: 40px;
+    color: white;
+    font-family: 'Monda', sans-serif;
+    line-height: 1.6em;
+}
