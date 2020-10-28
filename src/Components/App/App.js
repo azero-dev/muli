@@ -37,20 +37,22 @@ class App extends React.Component {
         <Header />
         <div id="back-body">
 
-          <div id="main-canvas">
-            <div id="button-list">
-              <AddGenreButton onFormStatus={this.isFormActive} isActive={this.state.genreFormActive} />
+          <div id="back">
+            <div id="main-canvas">
+              <div id="button-list">
+                <AddGenreButton onFormStatus={this.isFormActive} isActive={this.state.genreFormActive} />
+              </div>
+              <div id="lists-canvas">
+                <List list={this.state.genres} />
+              </div>
             </div>
-            <div id="lists-canvas">
-              <List list={this.state.genres} />
+
+            <div id="side-layer">
+              <p>Welcome to the Muli app. This tool is under development and just started, but it's already published so everyone can follow up the way I develop it.</p>
+              <p>For more information, please go to my <a href="https://github.com/azero-dev/muli">GitHub</a> and check all the work. I'm developing this webapp at the same time that I do other works, so there will not be great advances on a daily basis. However, it serves as a sample of my knowledge in different tools and libraries such as React</p>
             </div>
           </div>
 
-          <div id="side-layer">
-            <p>Welcome to the Muli app. This tool is under development and just started, but it's already published so everyone can follow up the way I develop it.</p>
-            <p>For more information, please go to my <a href="https://github.com/azero-dev/muli">GitHub</a> and check all the work. I'm developing this webapp at the same time that I do other works, so there will not be great advances on a daily basis. However, it serves as a sample of my knowledge in different tools and libraries such as React</p>
-          </div>
-          
           <div id="lower-box">
             <div id="logo">
               <p id="logo-firt">MUSIC LIST</p>

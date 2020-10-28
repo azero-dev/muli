@@ -1,48 +1,50 @@
 #back-body{
+  /* z-index: 1; */
+}
+#back {
   display: flex;
-  z-index: 1;
+  min-height: 100%;
+}
+#clear {
+  clear: both;
 }
 
 /*MAIN CANVAS*/
 #main-canvas{
+  flex: 71%;
+  padding: 4% 0 0 4%;
   background-color: #10162d;
-  width: 75%;
-  min-height: 80vh;
-  padding: 4% 6%;
+  min-height: 68vh;
   overflow: scroll;
 }
-#button-list button{
-  font-family: 'Monda', sans-serif;
-  font-size: 16px;
-  color: #10162d;
-  background-color: #e14f52;
-  padding: 4px 12px;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
-  transition-duration: 0.3s;
-  transition-timing-function: ease;
-}
-#button-list button:hover{
-  background-color: rgba(10, 14, 28, 0.6);
-  color: #e14f52;
+#main-canvas li {
+  /* padding: 0 4%; */
+  user-select: none;
 }
 
 
 /*SIDE BOX*/
 #side-layer{
+  flex: 19%;
   background-color: #0e1327;
-  width: 25%;
-  padding: 4% 6%;
+  padding: 3%;
 }
 #side-layer p{
   color: white;
   font-family: 'Monda', sans-serif;
   line-height: 1.6em;
+  text-align: justify;
+  cursor: context-menu;
+}
+#side-layer p::selection{
+  color: #e14f52;
 }
 #side-layer p a{
   color: #e14f52;
   text-decoration:none;
+}
+#side-layer p a::selection {
+  color: #52e14f;
 }
 
 /*LOWER BOW*/
@@ -50,31 +52,33 @@
   display: flex;
   background-color: #0a0e1c;
   width: 100%;
-  height: 100px;
-  max-height: 100px;
-  padding: 2% 6%;
-  position: fixed;
-  bottom: 0;
-  z-index: 2;
+  height: 100%;
+  max-height: 200px;
   color: white;
   font-family: 'Anton', sans-serif;
 }
 #logo{
   clear: both;
+  padding: 1%;
 }
 #logo-firt{
   margin: 0;
+  padding: 2% 6% 0;
+  width: 100%;
   font-weight: bold;
   font-size: 60px;
   letter-spacing: -1px;
+  user-select: none;
 }
 #logo-second{
   margin: 0;
   font-size: 16px;
+  padding: 0px 0 0 6%;
+  user-select: none;
 }
 #form-box{
   width: 66%;
-  padding: 1% 6%;
+  padding: 3% 3%;
   display: flex;
   flex-wrap: wrap;
 }
