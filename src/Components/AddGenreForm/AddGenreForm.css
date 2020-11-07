@@ -1,0 +1,49 @@
+#form-box{
+    width: 66%;
+    padding: 3% 3%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  #inside-form{
+    width: 100%;
+    border: none;
+    border-radius: .25rem;
+    
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+  }
+  #inside-form input{
+    margin: 0 2% 0 0;
+    border: none;
+    border-radius: 15px;
+    padding: 1%;
+    background-color: #111933;
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 1px;
+    color: white;
+  }
+  #inside-form button{
+    margin: 0 2% 0 0;
+    border: none;
+    border-radius: 15px;
+    padding: 1%;
+    background-color: #111933;
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.795);
+    cursor: pointer;
+  }
+  #inside-form p{
+    display: inline-block;
+    font-family: 'Monda', sans-serif;
+    color: rgba(255, 255, 255, 0.795);
+    cursor: context-menu;
+}
+#inside-form p::selection{
+    color: #e14f52;
+    ;
+}
+  .submit-form{
+    cursor: pointer;
+    letter-spacing: 1px;
+  }

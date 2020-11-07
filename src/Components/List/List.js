@@ -4,17 +4,23 @@ import './List.css';
 class List extends React.Component {
     constructor(props) {
         super(props);
+        this.makeList = this.makeList.bind(this);
+    }
+
+    makeList() {
+       // ADD LATER 
     }
 
     render() {
         return (
-            <ul id="list-canvas">
-                <li>{
-                    Object.keys(this.props.list).map(gen => {
-                        return <li>{gen}</li>;
-                    })
-                }</li>
-            </ul>
+            this.props.list.map((gen, index) => {
+                return (
+                        <li key={index} >
+                            {gen}
+                            <ul id={gen}></ul>
+                        </li>
+                )
+            })
         )
     }
 }

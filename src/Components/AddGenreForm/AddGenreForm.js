@@ -9,16 +9,15 @@ class AddGenreForm extends React.Component {
 
     setNewGen() {
         const inputValue = document.getElementById('genreInput').value;
-        console.log(inputValue);
-        this.props.inputGen(inputValue);
-        this.props.isFormActive(false);
+        if (inputValue.length && inputValue.length < 20) {
+            this.props.inputGen(inputValue);
+            this.props.isFormActive(false);
+        }
     }
 
     render() {
         if (!this.props.isActive === true) {
-            return (
-                <div></div>
-            );
+            return null;
         } else {
             return (
                 <form>
@@ -34,6 +33,7 @@ class AddGenreForm extends React.Component {
                         >
                         Add
                     </button>
+                    <p>Insert a genre. It has to be &#62; than 0 and &#60; than 20 letters.</p>
                 </form>
             )
         }
