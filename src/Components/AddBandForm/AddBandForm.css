@@ -1,0 +1,12 @@
+.select {
+    border-radius: 15px;
+    border: none;
+    margin-right: 20px;
+    padding: 1%;
+    background-color: #111933;
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.795);
+    appearance: none;
+    cursor: pointer;
+}

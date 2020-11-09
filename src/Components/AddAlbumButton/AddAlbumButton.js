@@ -1,7 +1,7 @@
 import React from 'react';
-import './AddBandButton.css';
+import './AddAlbumButton.css';
 
-class AddBandButton extends React.Component {
+class AddAlbumButton extends React.Component {
     constructor(props) {
         super(props);
         this.switchButton = this.switchButton.bind(this);
@@ -13,15 +13,15 @@ class AddBandButton extends React.Component {
         } else {
             this.props.onFormStatus(true);
             this.props.isGenreFormActive(false);
-            this.props.isAlbumFormActive(false);
+            this.props.isBandFormActive(false);
         }
     }
 
     render() {
         return (
-            <button onClick={this.switchButton}>Add band</button>
+            <button onClick={this.switchButton}>Add album</button>
         )
     }
 }
 
-export default AddBandButton;
+export default AddAlbumButton;

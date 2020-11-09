@@ -13,6 +13,7 @@ class AddGenreButton extends React.Component {
         } else {
             this.props.onFormStatus(true);
             this.props.isBandFormActive(false);
+            this.props.isAlbumFormActive(false);
         }
     }
 

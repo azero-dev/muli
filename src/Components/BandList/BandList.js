@@ -1,10 +1,8 @@
 import React from 'react';
 import './BandList.css';
+import AlbumList from '../AlbumList/AlbumList';
 
 class BandList extends React.Component {
-    constructor(props) {
-        super(props);
-    }
 
     render() {
         const theBandSorted = this.props.bandSort;
@@ -16,7 +14,10 @@ class BandList extends React.Component {
                         return (<li className="bandList">
                                     {element.name}
                                     <ol id={element.name+1} >
-                                        {/* ALBUMLIST HERE */}
+                                        <AlbumList 
+                                            albumSort={element.name}
+                                            allMusic={this.props.allMusic}
+                                        />
                                     </ol>
                                 </li>)
                     }

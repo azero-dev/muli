@@ -6,41 +6,60 @@ import AddGenreButton from '../AddGenreButton/AddGenreButton';
 import AddGenreForm from '../AddGenreForm/AddGenreForm';
 import AddBandButton from '../AddBandButton/AddBandButton';
 import AddBandForm from '../AddBandForm/AddBandForm';
+import AddAlbumButton from '../AddAlbumButton/AddAlbumButton';
+import AddAlbumForm from '../AddAlbumForm/AddAlbumForm';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      genres: ['Rock', 'Ambient', 'Punk'],
+      genres: ['Rock', 'Blues', 'Bossa Nova'],
       bands: [
-        {name: 'Led Zeppelin', position: 'Rock'},
-        {name: 'Vangelis', position: 'Ambient'},
-        {name: 'Misfist', position: 'Punk'},
+        {name: 'Led Zappelin', position: 'Rock'},
+        {name: 'B.B. King', position: 'Blues'},
+        {name: 'Caetano Veloso', position: 'Bossa Nova'},
       ],
-      albums: [ {name: 'Album Name', position: ''} ],
+      albums: [
+        {name: 'Presence', position: 'Led Zappelin'},
+        {name: 'A Christmas Celebration of Hope', position: 'B.B. King'},
+        {name: 'Transa', position: 'Caetano Veloso'},
+      ],
       songs: [ {name: 'Song Name', position: 'Album Name'} ],
+      // Check display status
       genreFormActive: false,
       bandFormActive: false,
+      albumFormActive: false,
     }
+    // Binding
     this.isFormActive = this.isFormActive.bind(this);
     this.isBandFormActive = this.isBandFormActive.bind(this);
+    this.isAlbumFormActive = this.isAlbumFormActive.bind(this);
+    // Add info
     this.addingGenre = this.addingGenre.bind(this);
     this.addingBand = this.addingBand.bind(this);
+    this.addingAlbum = this.addingAlbum.bind(this);
   }
 
-
+  // Change display forms
   isFormActive(tw) {
     this.setState({ genreFormActive: tw });
   }
   isBandFormActive(tw) {
     this.setState({ bandFormActive: tw });
   }
+  isAlbumFormActive(tw) {
+    this.setState({ albumFormActive: tw });
+  }
 
+    // Add info
   addingGenre(tw) {
     this.setState({ genres: this.state.genres.concat(tw) });
   }
   addingBand(tw, tp) {
     this.setState({ bands: [...this.state.bands, ...[{name: tw, position: tp}]] });
+  }
+  addingAlbum(tw, tp) {
+    this.setState({ albums: [...this.state.albums, ...[{name: tw, position: tp}]] });
   }
 
   render() {
@@ -55,11 +74,19 @@ class App extends React.Component {
                 <AddGenreButton
                   onFormStatus={this.isFormActive}
                   isActive={this.state.genreFormActive}
-                  isBandFormActive={this.isBandFormActive} />
+                  isBandFormActive={this.isBandFormActive}
+                  isAlbumFormActive={this.isAlbumFormActive} />
                 <AddBandButton 
                   onFormStatus={this.isBandFormActive} 
                   isActive={this.state.bandFormActive}
-                  isGenreFormActive={this.isFormActive} />
+                  isGenreFormActive={this.isFormActive} 
+                  isAlbumFormActive={this.isAlbumFormActive} />
+                <AddAlbumButton 
+                  onFormStatus={this.isAlbumFormActive} 
+                  isActive={this.state.albumFormActive}
+                  isGenreFormActive={this.isFormActive}
+                  isBandFormActive={this.isBandFormActive}
+                />
               </div>
               <div>
                 <ol key="listOfGenres" id="listRoot" className="list-canvas">
@@ -90,10 +117,17 @@ class App extends React.Component {
                   isFormActive={this.isFormActive} />
                 <AddBandForm
                   genres={this.state.genres}
-                  options={this.state.bands}
+                  bands={this.state.bands}
                   isActive={this.state.bandFormActive}
-                  inputGen={this.addingBand}
+                  inputBand={this.addingBand}
                   isFormActive={this.isBandFormActive} />
+                <AddAlbumForm 
+                  bands={this.state.bands}
+                  albums={this.state.albums}
+                  isActive={this.state.albumFormActive}
+                  inputAlbum={this.addingAlbum}
+                  isFormActive={this.isAlbumFormActive}
+                />
               </div>
             </div>
           </div>
