@@ -4,28 +4,43 @@ import Header from '../Header/Header';
 import List from '../List/List';
 import AddGenreButton from '../AddGenreButton/AddGenreButton';
 import AddGenreForm from '../AddGenreForm/AddGenreForm';
+import AddBandButton from '../AddBandButton/AddBandButton';
+import AddBandForm from '../AddBandForm/AddBandForm';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      genres: ['Rock', 'Jazz', 'Pop'],
-      bands: [ {name: 'Banda Name', position: 'Rock'} ],
+      genres: ['Rock', 'Ambient', 'Punk'],
+      bands: [
+        {name: 'Led Zeppelin', position: 'Rock'},
+        {name: 'Vangelis', position: 'Ambient'},
+        {name: 'Misfist', position: 'Punk'},
+      ],
       albums: [ {name: 'Album Name', position: ''} ],
       songs: [ {name: 'Song Name', position: 'Album Name'} ],
       genreFormActive: false,
+      bandFormActive: false,
     }
     this.isFormActive = this.isFormActive.bind(this);
+    this.isBandFormActive = this.isBandFormActive.bind(this);
     this.addingGenre = this.addingGenre.bind(this);
+    this.addingBand = this.addingBand.bind(this);
   }
 
 
   isFormActive(tw) {
     this.setState({ genreFormActive: tw });
   }
+  isBandFormActive(tw) {
+    this.setState({ bandFormActive: tw });
+  }
 
   addingGenre(tw) {
     this.setState({ genres: this.state.genres.concat(tw) });
+  }
+  addingBand(tw, tp) {
+    this.setState({ bands: [...this.state.bands, ...[{name: tw, position: tp}]] });
   }
 
   render() {
@@ -37,13 +52,22 @@ class App extends React.Component {
           <div id="back">
             <div id="main-canvas">
               <div id="button-list">
-                <AddGenreButton onFormStatus={this.isFormActive} isActive={this.state.genreFormActive} />
+                <AddGenreButton
+                  onFormStatus={this.isFormActive}
+                  isActive={this.state.genreFormActive}
+                  isBandFormActive={this.isBandFormActive} />
+                <AddBandButton 
+                  onFormStatus={this.isBandFormActive} 
+                  isActive={this.state.bandFormActive}
+                  isGenreFormActive={this.isFormActive} />
               </div>
               <div>
-                <ul key="listOfGenres" id="listRoot" className="list-canvas">
+                <ol key="listOfGenres" id="listRoot" className="list-canvas">
                 {/* Check this ID, maybe remove it if not used */}
-                  <List list={this.state.genres} />
-                </ul>
+                  <List
+                    list={this.state.genres}
+                    allMusic={this.state} />
+                </ol>
               </div>
             </div>
 
@@ -56,7 +80,7 @@ class App extends React.Component {
           <div id="lower-box">
             <div id="logo">
               <p id="logo-firt">MUSIC LIST</p>
-              <p id="logo-second">V 0.1</p>
+              <p id="logo-second">V 0.2</p>
             </div>
             <div id="form-box">
               <div id="inside-form">
@@ -64,6 +88,12 @@ class App extends React.Component {
                   isActive={this.state.genreFormActive}
                   inputGen={this.addingGenre}
                   isFormActive={this.isFormActive} />
+                <AddBandForm
+                  genres={this.state.genres}
+                  options={this.state.bands}
+                  isActive={this.state.bandFormActive}
+                  inputGen={this.addingBand}
+                  isFormActive={this.isBandFormActive} />
               </div>
             </div>
           </div>

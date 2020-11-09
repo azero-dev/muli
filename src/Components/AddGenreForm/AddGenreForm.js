@@ -33,7 +33,7 @@ class AddGenreForm extends React.Component {
                         >
                         Add
                     </button>
-                    <p>Insert a genre. It has to be &#62; than 0 and &#60; than 20 letters.</p>
+                    <p>Insert a genre. It should have between 1 and 20 characters.</p>
                 </form>
             )
         }
