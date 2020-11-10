@@ -18,7 +18,7 @@ class List extends React.Component {
                 return (
                     <li key={index} >
                         {gen}
-                        <ol id={gen}> {/*Is this id necessary??  DELETE IT!! */}
+                        <ol id={gen}>
                             <BandList
                                 bandSort={gen}
                                 allMusic={this.props.allMusic}

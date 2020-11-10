@@ -14,7 +14,8 @@
   flex: 71%;
   padding: 4% 0 0 4%;
   background-color: #10162d;
-  min-height: 68vh;
+  min-height: 67vh;
+  max-height: 69vh;
   overflow: scroll;
 }
 #main-canvas li {

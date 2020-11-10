@@ -13,7 +13,7 @@ class BandList extends React.Component {
                     if (element.position === theBandSorted) {
                         return (<li className="bandList">
                                     {element.name}
-                                    <ol id={element.name+1} >
+                                    <ol id={element.name} >
                                         <AlbumList 
                                             albumSort={element.name}
                                             allMusic={this.props.allMusic}

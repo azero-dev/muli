@@ -1,7 +1,7 @@
 import React from 'react';
-import './AddBandForm.css';
+import './AddSongForm.css';
 
-class AddBandForm extends React.Component {
+class AddSongForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -23,29 +23,29 @@ class AddBandForm extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        const inputValue = document.getElementById('bandInput').value;
+        const inputValue = document.getElementById('songInput').value;
         const selectPosition = this.state.position !== 'Select';
         const selectedPosition = this.state.position;
         let notRepeated = () => {
             let key = true;
-            this.props.bands.forEach(element => {
+            this.props.songs.forEach(element => {
                 if (element.name === inputValue) {
                     key = false;
-                    alert('Band already on the list.');
+                    alert('Song already on the list.');
                 }
             });
             return key;
         };
 
-        if (inputValue.length && inputValue.length < 20 && selectPosition && notRepeated()) {
-            this.props.inputBand(inputValue, selectedPosition);
+        if (inputValue.length && inputValue.length < 30 && selectPosition && notRepeated()) {
+            this.props.inputSong(inputValue, selectedPosition);
             this.props.isFormActive(false);
         }
     }
 
     render() {
-        const genres = this.props.genres.map(pos => {
-            return (<option className="options" value={pos}>{pos}</option>)
+        const albums = this.props.albums.map(pos => {
+            return (<option className="options" value={pos.name}>{pos.name}</option>)
         });
 
         if (!this.props.isActive === true) {
@@ -54,27 +54,27 @@ class AddBandForm extends React.Component {
             return (
                 <form onSubmit={this.handleSubmit}>
                     <input
-                        id="bandInput"
+                        id="songInput"
                         type="text"
-                        placeholder="Add new band"
-                        pattern="[a-zA-Z\s]{1,20}"
+                        placeholder="Add new song"
+                        pattern="[a-zA-Z\s]{1,30}"
                         value={this.state.value}
                         onChange={this.handleNameChange}
                         required autoFocus></input>
                     <select className="select" value={this.state.position} onChange={this.handleOptionChange}>
-                        <option className="options" value="Select">-Select a genre-</option>
-                        {genres}
+                        <option className="options" value="Select">-Select an album-</option>
+                        {albums}
                     </select>
                     <button type="submit"
                         value="Add"
                     >
                         Add
                     </button>
-                    <p>Insert a band. It should have between 1 and 20 characters.</p>
+                    <p>Insert a song. It should have between 1 and 30 characters.</p>
                 </form>
             )
         }
     }
 }
 
-export default AddBandForm;
+export default AddSongForm;

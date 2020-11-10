@@ -14,6 +14,7 @@ class AddBandButton extends React.Component {
             this.props.onFormStatus(true);
             this.props.isGenreFormActive(false);
             this.props.isAlbumFormActive(false);
+            this.props.isSongFormActive(false);
         }
     }
 

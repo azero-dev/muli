@@ -1,0 +1,6 @@
+.songList {
+    list-style-type: decimal;
+    font-size: 20px !important;
+    color: #e14f52;
+    margin-left: 26px;
+}

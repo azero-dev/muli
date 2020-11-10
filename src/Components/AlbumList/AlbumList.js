@@ -1,5 +1,6 @@
 import React from 'react';
 import './AlbumList.css';
+import SongList from '../SongList/SongList';
 
 class AlbumList extends React.Component {
 
@@ -11,9 +12,12 @@ class AlbumList extends React.Component {
                 {theAlbums.map(element => {
                     if (element.position === albumSorted) {
                         return (<li className="albumList">
-                                    {element.name}
-                                    <ol id={element.name+1} >
-                                        {/* Nothing yet */}
+                                    -{element.name}
+                                    <ol id={element.name} >
+                                        <SongList 
+                                            songSort={element.name}
+                                            allMusic={this.props.allMusic}
+                                        />
                                     </ol>
                                 </li>)
                     }

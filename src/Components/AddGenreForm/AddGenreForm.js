@@ -25,7 +25,7 @@ class AddGenreForm extends React.Component {
                         id="genreInput"
                         type="text"
                         placeholder="Add new genre"
-                        pattern="[a-zA-Z]{1,20}"
+                        pattern="[a-zA-Z\s]{1,20}"
                         required autoFocus></input>
                     <button type="button"
                         value="Add"

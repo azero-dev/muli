@@ -8,6 +8,8 @@ import AddBandButton from '../AddBandButton/AddBandButton';
 import AddBandForm from '../AddBandForm/AddBandForm';
 import AddAlbumButton from '../AddAlbumButton/AddAlbumButton';
 import AddAlbumForm from '../AddAlbumForm/AddAlbumForm';
+import AddSongButton from '../AddSongButton/AddSongButton';
+import AddSongForm from '../AddSongForm/AddSongForm';
 
 class App extends React.Component {
   constructor(props) {
@@ -15,29 +17,36 @@ class App extends React.Component {
     this.state = {
       genres: ['Rock', 'Blues', 'Bossa Nova'],
       bands: [
-        {name: 'Led Zappelin', position: 'Rock'},
-        {name: 'B.B. King', position: 'Blues'},
-        {name: 'Caetano Veloso', position: 'Bossa Nova'},
+        { name: 'Led Zappelin', position: 'Rock' },
+        { name: 'B.B. King', position: 'Blues' },
+        { name: 'Caetano Veloso', position: 'Bossa Nova' },
       ],
       albums: [
-        {name: 'Presence', position: 'Led Zappelin'},
-        {name: 'A Christmas Celebration of Hope', position: 'B.B. King'},
-        {name: 'Transa', position: 'Caetano Veloso'},
+        { name: 'Presence', position: 'Led Zappelin' },
+        { name: 'A Christmas Celebration of Hope', position: 'B.B. King' },
+        { name: 'Transa', position: 'Caetano Veloso' },
       ],
-      songs: [ {name: 'Song Name', position: 'Album Name'} ],
+      songs: [
+        { name: 'Royal Orleans', position: 'Presence' },
+        { name: 'To Someone That I Love', position: 'A Christmas Celebration of Hope' },
+        { name: 'Nine Out of Ten', position: 'Transa' },
+      ],
       // Check display status
       genreFormActive: false,
       bandFormActive: false,
       albumFormActive: false,
+      songFormActive: false,
     }
-    // Binding
+    // Binding forms
     this.isFormActive = this.isFormActive.bind(this);
     this.isBandFormActive = this.isBandFormActive.bind(this);
     this.isAlbumFormActive = this.isAlbumFormActive.bind(this);
-    // Add info
+    this.isSongFormActive = this.isSongFormActive.bind(this);
+    // Biding methods
     this.addingGenre = this.addingGenre.bind(this);
     this.addingBand = this.addingBand.bind(this);
     this.addingAlbum = this.addingAlbum.bind(this);
+    this.addingSong = this.addingSong.bind(this);
   }
 
   // Change display forms
@@ -50,16 +59,22 @@ class App extends React.Component {
   isAlbumFormActive(tw) {
     this.setState({ albumFormActive: tw });
   }
+  isSongFormActive(tw) {
+    this.setState({ songFormActive: tw });
+  }
 
-    // Add info
+  // Add info
   addingGenre(tw) {
     this.setState({ genres: this.state.genres.concat(tw) });
   }
   addingBand(tw, tp) {
-    this.setState({ bands: [...this.state.bands, ...[{name: tw, position: tp}]] });
+    this.setState({ bands: [...this.state.bands, ...[{ name: tw, position: tp }]] });
   }
   addingAlbum(tw, tp) {
-    this.setState({ albums: [...this.state.albums, ...[{name: tw, position: tp}]] });
+    this.setState({ albums: [...this.state.albums, ...[{ name: tw, position: tp }]] });
+  }
+  addingSong(tw, tp) {
+    this.setState({ songs: [...this.state.songs, ...[{ name: tw, position: tp }]] });
   }
 
   render() {
@@ -75,22 +90,31 @@ class App extends React.Component {
                   onFormStatus={this.isFormActive}
                   isActive={this.state.genreFormActive}
                   isBandFormActive={this.isBandFormActive}
-                  isAlbumFormActive={this.isAlbumFormActive} />
-                <AddBandButton 
-                  onFormStatus={this.isBandFormActive} 
+                  isAlbumFormActive={this.isAlbumFormActive}
+                  isSongFormActive={this.isSongFormActive} />
+                <AddBandButton
+                  onFormStatus={this.isBandFormActive}
                   isActive={this.state.bandFormActive}
-                  isGenreFormActive={this.isFormActive} 
-                  isAlbumFormActive={this.isAlbumFormActive} />
-                <AddAlbumButton 
-                  onFormStatus={this.isAlbumFormActive} 
+                  isGenreFormActive={this.isFormActive}
+                  isAlbumFormActive={this.isAlbumFormActive}
+                  isSongFormActive={this.isSongFormActive} />
+                <AddAlbumButton
+                  onFormStatus={this.isAlbumFormActive}
                   isActive={this.state.albumFormActive}
                   isGenreFormActive={this.isFormActive}
                   isBandFormActive={this.isBandFormActive}
+                  isSongFormActive={this.isSongFormActive} />
+                <AddSongButton
+                  onFormStatus={this.isSongFormActive}
+                  isActive={this.state.songFormActive}
+                  isGenreFormActive={this.isFormActive}
+                  isBandFormActive={this.isBandFormActive}
+                  isAlbumFormActive={this.isAlbumFormActive}
                 />
               </div>
               <div>
                 <ol key="listOfGenres" id="listRoot" className="list-canvas">
-                {/* Check this ID, maybe remove it if not used */}
+                  {/* Check this ID, maybe remove it if not used */}
                   <List
                     list={this.state.genres}
                     allMusic={this.state} />
@@ -121,12 +145,18 @@ class App extends React.Component {
                   isActive={this.state.bandFormActive}
                   inputBand={this.addingBand}
                   isFormActive={this.isBandFormActive} />
-                <AddAlbumForm 
+                <AddAlbumForm
                   bands={this.state.bands}
                   albums={this.state.albums}
                   isActive={this.state.albumFormActive}
                   inputAlbum={this.addingAlbum}
-                  isFormActive={this.isAlbumFormActive}
+                  isFormActive={this.isAlbumFormActive} />
+                <AddSongForm
+                  albums={this.state.albums}
+                  songs={this.state.songs}
+                  isActive={this.state.songFormActive}
+                  inputSong={this.addingSong}
+                  isFormActive={this.isSongFormActive}
                 />
               </div>
             </div>
