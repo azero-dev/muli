@@ -1,0 +1,6 @@
+.expander {
+    display: inline;
+    cursor: pointer;
+    color: #e14f52;
+    font-weight: bold;
+}

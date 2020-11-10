@@ -1,6 +1,7 @@
 import React from 'react';
 import './AlbumList.css';
 import SongList from '../SongList/SongList';
+import Expand from '../Tools/Expand/Expand';
 
 class AlbumList extends React.Component {
 
@@ -11,15 +12,16 @@ class AlbumList extends React.Component {
             <>
                 {theAlbums.map(element => {
                     if (element.position === albumSorted) {
-                        return (<li className="albumList">
-                                    -{element.name}
-                                    <ol id={element.name} >
-                                        <SongList 
-                                            songSort={element.name}
-                                            allMusic={this.props.allMusic}
-                                        />
-                                    </ol>
-                                </li>)
+                        return (<li key={element.name} className="albumList">
+                            <Expand ide={element.name + 3} />
+                            {element.name}
+                            <ol key={element.name + 3} id={element.name + 3} className="expandIt" >
+                                <SongList
+                                    songSort={element.name}
+                                    allMusic={this.props.allMusic}
+                                />
+                            </ol>
+                        </li>)
                     }
                     return null;
                 })}

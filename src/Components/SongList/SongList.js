@@ -10,7 +10,7 @@ class SongList extends React.Component {
             <>
                 {theSongs.map(element => {
                     if (element.position === songSorted) {
-                        return (<li className="songList">
+                        return (<li key={element.name+4} id={element.name+4} className="songList">
                                     {element.name}
                                 </li>)
                     }
