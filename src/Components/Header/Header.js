@@ -7,7 +7,7 @@ class Header extends React.Component {
             <div id="menu">
                 <p>
                     <a href="https://inferente.com/">
-                        &#60;&#60; back
+                        Muli
                     </a>
                 </p>
             </div>

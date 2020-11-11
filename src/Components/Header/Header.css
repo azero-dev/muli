@@ -10,7 +10,8 @@
     padding: 1% 0;
     color: #e14f52;
     text-align: center;
-    font-family: 'Nova Mono', monospace;
+    font-family: 'Monda', sans-serif;
+    font-weight: bold;
     font-size: 28px;
 }
 #menu a, #menu a:link, #menu a:visited, #menu a:hover, #menu a:active{

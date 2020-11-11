@@ -18,9 +18,12 @@
   max-height: 69vh;
   overflow: scroll;
 }
-#main-canvas li {
-  /* padding: 0 4%; */
-  user-select: none;
+#main-canvas li::selection{
+  color: #e14f52;
+}
+#main-canvas li li {
+  width: max-content;
+  cursor: pointer;
 }
 
 
@@ -46,6 +49,12 @@
 }
 #side-layer p a::selection {
   color: #52e14f;
+}
+#side-layer span::selection {
+  color: #52e14f;
+}
+.redHighlight {
+  color: #e14f52;
 }
 
 /*LOWER BOW*/

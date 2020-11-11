@@ -4,3 +4,7 @@
     color: #e14f52;
     font-weight: bold;
 }
+
+.expander::selection {
+    user-select: none;
+}
