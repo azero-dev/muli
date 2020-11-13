@@ -47,3 +47,21 @@
     cursor: pointer;
     letter-spacing: 1px;
   }
+
+  @media all and (max-width: 980px) {
+    #form-box {
+      width: 100%;
+    }
+    #inside-form {
+      text-align: center;
+      padding: 2% 0 0 0;
+    }
+    #inside-form input{
+      font-size: 14px;
+      padding: 3%;
+    }
+    #inside-form button {
+      font-size: 14px;
+      padding: 3%;
+    }
+  }

@@ -1,15 +1,20 @@
 #menu{
+    min-height: 10vh;
+    max-height: 11vh;
     background-color: #05091b;
     width: 100%;
-    display: block;
+    display: flex;
     padding: 0;
     user-select: none;
 }
 #menu p{
-    margin: 0;
-    padding: 1% 0;
-    color: #e14f52;
+    display: flex;
     text-align: center;
+    align-items:center;
+    justify-content:center;
+    width: 100%;
+    margin: 0;
+    color: #e14f52;
     font-family: 'Monda', sans-serif;
     font-weight: bold;
     font-size: 28px;

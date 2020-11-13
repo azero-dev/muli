@@ -20,7 +20,7 @@ class AddGenreButton extends React.Component {
 
     render() {
         return (
-            <button onClick={this.switchButton}>Add genre</button>
+            <button onClick={this.switchButton}>Genre</button>
         )
     }
 }

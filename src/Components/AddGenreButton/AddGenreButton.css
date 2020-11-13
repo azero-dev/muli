@@ -1,5 +1,5 @@
 #button-list {
-    /* padding: 4% 0% 0 8%; */
+    display: flex;
 }
 #button-list button{
     padding: 4px 12px;

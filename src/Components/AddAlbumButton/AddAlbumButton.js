@@ -20,7 +20,7 @@ class AddAlbumButton extends React.Component {
 
     render() {
         return (
-            <button onClick={this.switchButton}>Add album</button>
+            <button onClick={this.switchButton}>Album</button>
         )
     }
 }

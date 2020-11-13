@@ -1,5 +1,9 @@
+html {
+  background-color: #10162d;
+}
+
 #back-body{
-  /* z-index: 1; */
+  /* display: flex; */
 }
 #back {
   display: flex;
@@ -14,8 +18,8 @@
   flex: 71%;
   padding: 4% 0 0 4%;
   background-color: #10162d;
-  min-height: 67vh;
-  max-height: 69vh;
+  max-height: 65vh;
+  min-height: 65vh;
   overflow: scroll;
 }
 #main-canvas li::selection{
@@ -60,10 +64,11 @@
 /*LOWER BOW*/
 #lower-box{
   display: flex;
+  align-self: flex-end;
   background-color: #0a0e1c;
   width: 100%;
   height: 100%;
-  max-height: 200px;
+  max-height: 22vh;
   color: white;
   font-family: 'Anton', sans-serif;
 }
@@ -85,4 +90,30 @@
   font-size: 16px;
   padding: 0px 0 0 6%;
   user-select: none;
+}
+
+/* RESPONSIVE */
+@media all and (max-width: 980px) {
+  #back {
+    flex-direction: column;
+  }
+
+  #main-canvas {
+    flex: 100%;
+    max-height: 85vh;
+  }
+
+  #side-layer{
+    flex: 100%;
+  }
+  #side-layer p {
+    font-size: 15px;
+  }
+
+  #logo {
+    display: none;
+  }
+  #logo-firt {
+    font-size: 18px;
+  }
 }

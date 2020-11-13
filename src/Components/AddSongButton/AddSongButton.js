@@ -20,7 +20,7 @@ class AddSongButton extends React.Component {
 
     render() {
         return (
-            <button onClick={this.switchButton}>Add song</button>
+            <button onClick={this.switchButton}>Song</button>
         )
     }
 }
